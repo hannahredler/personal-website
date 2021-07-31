@@ -1,6 +1,8 @@
 module.exports = {
     "env": {
         "browser": true,
+        "amd": true,
+        "node": true,
         "es2021": true
     },
     "extends": [
@@ -17,6 +19,10 @@ module.exports = {
     "plugins": [
         "react"
     ],
-    "rules": {
-    }
+    rules: {
+        // suppress errors for missing 'import React' in files
+        "react/react-in-jsx-scope": "off",
+        // allow jsx syntax in js files (for next.js project)
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], //should add ".ts" if typescript project
+      }
 };
